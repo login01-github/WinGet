@@ -1,0 +1,25 @@
+Method 1
+
+Install-Script winget-install -Force
+Install-PackageProvider -Name "NuGet" -Force
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+
+
+Method 2
+
+Powershell RunAsAdministrator
+./winget-install.ps1
+if error
+Set-ExecutionPolicy unrestricted
+
+winget-install -checkforupdate
+
+
+Method 3
+
+Set-PSRepository -Name 'PSGallery' InstallationPolicy Trusted
+Install-Script -Name winget-install -Force
+winget-install.ps1
+
+Set-ExecutionPolicy -Unrestricted -Force
+winget-install.ps1
